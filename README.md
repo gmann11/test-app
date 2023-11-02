@@ -18,7 +18,3 @@ This app demonstrates react/Bloom integration in an iframe.  It:
 
 * Authentication is hardcoded - react app and Bloom auth are both driven by the hardcoded env variables.
 
-## TODO
-
-* Add row highlighting when row selected
-
