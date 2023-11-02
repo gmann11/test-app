@@ -15,6 +15,21 @@ const PersonTable = ({selectedRow, onSelect}) => {
   const { loading, error, records, first } = useReadCypher(query, {}, 'demo')
   if ( loading || first === undefined) return (<div>Loading...</div>)
 
+  const styles = theme => ({
+    tableRow: {
+      "&$selected, &$selected:hover": {
+        backgroundColor: "purple"
+      }
+    },
+    tableCell: {
+      "$selected &": {
+        color: "yellow"
+      }
+    },
+    hover: {},
+    selected: {}
+  });
+
   return (
     <TableContainer component={Paper}>
       <Table size="small" aria-label="dense table">
@@ -25,7 +40,7 @@ const PersonTable = ({selectedRow, onSelect}) => {
         </TableHead>
         <TableBody>
           {records.map((row) => (
-            <TableRow key={row.get('p').properties.tideId} sx={{ '&:last-child td, &:last-child th': { border: 0 } }} onClick={() => onSelect(row.get('p').properties.tideId)}>
+            <TableRow key={row.get('p').properties.tideId} selected={selectedRow === row.get('p').properties.tideId} sx={{ '&:last-child td, &:last-child th': { border: 0 } }} onClick={() => onSelect(row.get('p').properties.tideId)}>
               <TableCell component="th" scope="row">
                 {row.get('p').properties.nickName}
               </TableCell>
