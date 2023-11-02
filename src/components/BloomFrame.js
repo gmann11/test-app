@@ -20,11 +20,9 @@ const setBloomCredentials = async ({hostPortNoProtocol, user, password, expiresA
     };
 
     var credsnew = {...cnew, ...payload};
-    console.log("Credsnew: ", credsnew);
 
     localforage.setItem('neo4j.bloom.credentials', credsnew)
       .then(function (value) {
-        console.log("Credentials Res: ", value);
         resolve(value);
       })
       .catch(function(err) {
@@ -37,7 +35,6 @@ const setBloomCredentials = async ({hostPortNoProtocol, user, password, expiresA
 const BloomFrame = ({selectedRow}) => {
     let uu = config("NEO4J_PROTOCOL")+"://"+config("NEO4J_HOST")+":"+config("NEO4J_PORT")+"/";
     setBloomCredentials({user:config("NEO4J_USER"),password:config("NEO4J_PWD"),expiresAt:Date.now() + (30*60*1000),hostPortNoProtocol:uu});
-    console.log("selbloom:", selectedRow);
     var bloomURL =  (typeof selectedRow !== 'string') ? '/bloom/?run=true&search=Entity%20id%20' + selectedRow : '/bloom/';
     const keyUrl = bloomURL.replace(/\W/g, '_');
 
