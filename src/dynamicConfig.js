@@ -13,4 +13,4 @@ export const getDynamicConfigValue = (envKey) => {
 // shortcut with REACT_APP_ prefix
 export const config = (envKey) => getDynamicConfigValue(`REACT_APP_${envKey}`);
 
-export const getAppName = () => "TC Analyst"
+export const getAppName = () => "Test App"
