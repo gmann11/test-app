@@ -1,0 +1,3 @@
+{
+  "bolt": "neo4j://localhost:7687"
+}
