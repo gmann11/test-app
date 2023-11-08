@@ -6,12 +6,12 @@ This app demonstrates react/Bloom integration in an iframe.  It:
 
 ## Setup
 
-* Unzip Bloom assets into /bloom sudirectory in public dir (public/bloom)
-* Edit public/discovery.json to sepecify host/port of Neo4j server
+* Unzip Bloom assets into /bloom subdirectory in public dir (public/bloom)
+* Edit public/discovery.json to specify host/port of Neo4j server
 * Configure public/config/env-config.js as necessary
 * Configure a saved cypher in Bloom as:
   `Entity id $id`
-  `MATCH p=(e:Entity)--() WHERE e.tideId=$tideId return p`
+  `MATCH p=(e:Entity)--() WHERE e.id=$id return p`
 * npm start
 
 ## Notes
