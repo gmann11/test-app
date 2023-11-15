@@ -4,14 +4,23 @@ import "./App.css";
 import { Neo4jProvider, createDriver } from 'use-neo4j'
 
 import BloomFrame from "./components/BloomFrame";
-import PersonTable from "./components/PersonTable";
+import DocumentTable from "./components/DocumentTable";
+import DocumentView from "./components/DocumentView";
 
 function App() {
   const [selectedRow, setSelectedRow] = useState("")
+  //const [selectedView, setSelectedView] = useState("")
   return (
     <div className="grid-container">
-      <PersonTable selectedRow={selectedRow} onSelect={setSelectedRow} />
-      <BloomFrame selectedRow={selectedRow} />
+      <div className="a">
+        <DocumentTable selectedRow={selectedRow} onSelect={setSelectedRow} />
+      </div>
+      <div className="b">
+        <BloomFrame selectedRow={selectedRow} />
+      </div>
+      <div className="c">
+        <DocumentView />
+      </div>
     </div>
   );
 }
