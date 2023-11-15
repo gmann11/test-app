@@ -10,8 +10,9 @@ This app demonstrates react/Bloom integration in an iframe.  It:
 * Edit public/discovery.json to specify host/port of Neo4j server
 * Configure public/config/env-config.js as necessary
 * Configure a saved cypher in Bloom as:
-  `Entity id $id`
-  `MATCH p=(e:Entity)--() WHERE e.id=$id return p`
+  `Document $id`
+  `MATCH (d:TestDocument) WHERE e.id=$id return e`
+* Make sure that TestDocument nodes have a property (name doesn't matter) with a valid uri matching this pattern: "http://localhost:3000/?srcdoc=XXXXXXX" where XXXXXXX is the id of the document.
 * npm start
 
 ## Notes
