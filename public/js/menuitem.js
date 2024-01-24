@@ -3,7 +3,7 @@
  */
 $(document).ready(function() {
   setUp();
-  setMiArr("Invest");
+  setMiArr("Card");
   setMiArr("History");
 });
 
@@ -17,6 +17,13 @@ function eventFire(el, etype) {
     evObj.initEvent(etype, true, false);
     el.dispatchEvent(evObj);
   }
+}
+
+function mapToObj(map){
+  const obj = {}
+  for (let [k,v] of map)
+    obj[k] = v
+  return obj
 }
 
 function handleAddedClick(event) {
@@ -40,7 +47,7 @@ function setUp() {
       const m = new Map(p);
       state.fired = false;
       eventFire(b, 'click');
-      var pm = {'type': 'InternalUrl','item': state.item,'id': m.get("meta")};
+      var pm = {'type': 'InternalUrl','item': state.item,'id': m.get("tideId"), 'map':JSON.stringify(mapToObj(m))};
       parent.postMessage(pm,"*");
     }
   });
