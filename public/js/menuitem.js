@@ -29,7 +29,7 @@ function handleAddedClick(event) {
 }
 
 function setMiArr(item) { 
-    $(document).arrive("div[data-testid = 'popover-content']", function (c) {
+    $(document).arrive("div[data-testid = 'ndl-popover-content']", function (c) {
          var zz = `<li item="{name}" tabindex="-1" role="menuitem" data-testid="ndl-menu-item" class="ndl-menu-item n-flex n-flex-col">
                     <div class="n-flex n-flex-row n-gap-token-4">
                     <div class="ndl-menu-item-icon">
